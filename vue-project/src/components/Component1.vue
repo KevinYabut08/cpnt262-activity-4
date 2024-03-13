@@ -1,18 +1,14 @@
-<script setup>
-import { ref } from "vue";
-
-const name = ref("User");
-
-function greet(event) {
-  alert(`Hello ${name.value}!`);
-  if (event) {
-    alert(event.target.tagName);
-  }
-}
+<script>
+// use of props to generate the slot
+export default {
+  props: ["content"],
+};
 </script>
 
 <template>
-  <button @click="greet">Greet</button>
+  <div class="card">
+    <slot></slot>
+  </div>
 </template>
 
 <style scoped>
@@ -25,6 +21,14 @@ h1 {
 
 h3 {
   font-size: 1.2rem;
+}
+
+.card {
+  max-width: 250px;
+  text-align: center;
+  margin: 2rem;
+  padding: 0.6rem 0.8rem;
+  border: 0.1rem solid beige;
 }
 
 .greetings h1,
